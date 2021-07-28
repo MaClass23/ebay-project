@@ -1,0 +1,891 @@
+{
+  "version": 4,
+  "terraform_version": "1.0.2",
+  "serial": 22,
+  "lineage": "2116b982-c0b8-cca3-fc51-7cfaae6b87b4",
+  "outputs": {
+    "config_map_aws_auth": {
+      "value": "\r\n\r\napiVersion: v1\r\nkind: ConfigMap\r\nmetadata:\r\n  name: aws-auth\r\n  namespace: kube-system\r\ndata:\r\n  mapRoles: |\r\n    - rolearn: arn:aws:iam::402856767392:role/terraform-eks-demo-node\r\n      username: system:node:{{EC2PrivateDNSName}}\r\n      groups:\r\n        - system:bootstrappers\r\n        - system:nodes\r\n",
+      "type": "string"
+    },
+    "kubeconfig": {
+      "value": "\r\n\r\napiVersion: v1\r\nclusters:\r\n- cluster:\r\n    server: https://6BA539B8FFA92C6CA48E8C78D46A3647.yl4.us-west-1.eks.amazonaws.com\r\n    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM1ekNDQWMrZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1EY3lNekl3TXpreE5Wb1hEVE14TURjeU1USXdNemt4TlZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTDRrCm84cnhzZlp4TE1SN0oyVlJSWDJ4K255dWtMQzh5QVFWLzQzcjJHMDJVYWgwczE5SXd0SnI5U3IvNEFxN1FZN24KL2VLcURlNGtUamU0WWdRWEVKaXZpczlRTVZkenJGU3lCQmR1dHE5RG40MStnMTYvcnNkVTBwZUNaZW5KbnYycgo0R1NBNFU5TzR0NlJjVllhUThicVN4QTRrR2hhdFg1N0cvOHhzbUVXR1k0ckFDOGh4c3FtekNkWUM3ZzErUVFaCnEwYXJ0TEdNTjV0MTFJYlJ4RENOTC9FRnZXR0REcSswbjRhUjJORlpCaFpFbGx3eG16UWEybXFRY3VVMk1ESGIKWDQyTG9mNUFvYzREK2hIYmMvbkhGT2VwK0tUQzJ3dEpZcDd6TmFVYm5UYXFwN0R1VTQ0Q2xtemhtT0p4OUxwNgpPUFhVUi92cjk3d3R0aitEamNVQ0F3RUFBYU5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZIb1NZZjhHYnNNMzN4UmpCN2hlcVh6MWxvalNNQTBHQ1NxR1NJYjMKRFFFQkN3VUFBNElCQVFDcU9SUFpldU5tS2ttbThzVVNISnE1NjlUUjZJOEc0Vlk1blNzcDgwUjJxVS9hQTNBMwpTTEZPRG5MbFFSSGdKZmF2ZTU0WGlBUTlpMDlsUnpNWUFMQSs5bFJIRWlOTTN4WWpZdldjNTgvRCtGQ016ZXRKCmlzdXNWTVhEQWlocjlIOWJUVHNVb1o4Wk9JM2o0eithcWZSamRLSXlFWjR4L2s5dVZhRUZ3d0ZhbVlKMEJJNkgKaDBSeVlISXFXNWRLQ2VjUFdreDJ0RE9yZ2FIdTI4ME5TSndhMXNCUmY0K25kRHk0MEFob0lyQ2FBQ1VtRXg4dQpERnN4Q3NqZjFWenVydmljTERtYzdqMlRTc0trcG1sR04zWW85aVhJbjNlWS9GNUh2cjRlclB3WER4VThqNmZQCm1FR1dmZlk1dVNtY041STBGUzJlNEcySEtsTzZ6OXVRaEFhSQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==\r\n  name: kubernetes\r\ncontexts:\r\n- context:\r\n    cluster: kubernetes\r\n    user: aws\r\n  name: aws\r\ncurrent-context: aws\r\nkind: Config\r\npreferences: {}\r\nusers:\r\n- name: aws\r\n  user:\r\n    exec:\r\n      apiVersion: client.authentication.k8s.io/v1alpha1\r\n      command: aws-iam-authenticator\r\n      args:\r\n        - \"token\"\r\n        - \"-i\"\r\n        - \"terraform-eks-demo\"\r\n",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "aws_availability_zones",
+      "name": "available",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "all_availability_zones": null,
+            "exclude_names": null,
+            "exclude_zone_ids": null,
+            "filter": null,
+            "group_names": [
+              "us-west-1"
+            ],
+            "id": "us-west-1",
+            "names": [
+              "us-west-1a",
+              "us-west-1b"
+            ],
+            "state": null,
+            "zone_ids": [
+              "usw1-az3",
+              "usw1-az1"
+            ]
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_iam_policy_document",
+      "name": "worker_autoscaling",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "3440721371",
+            "json": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"eksWorkerAutoscalingAll\",\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"ec2:DescribeLaunchTemplateVersions\",\n        \"autoscaling:DescribeTags\",\n        \"autoscaling:DescribeLaunchConfigurations\",\n        \"autoscaling:DescribeAutoScalingInstances\",\n        \"autoscaling:DescribeAutoScalingGroups\"\n      ],\n      \"Resource\": \"*\"\n    },\n    {\n      \"Sid\": \"eksWorkerAutoscalingOwn\",\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"autoscaling:UpdateAutoScalingGroup\",\n        \"autoscaling:TerminateInstanceInAutoScalingGroup\",\n        \"autoscaling:SetDesiredCapacity\"\n      ],\n      \"Resource\": \"*\",\n      \"Condition\": {\n        \"StringEquals\": {\n          \"autoscaling:ResourceTag/k8s.io/cluster-autoscaler/enabled\": [\n            \"true\"\n          ],\n          \"autoscaling:ResourceTag/kubernetes.io/cluster/terraform-eks-demo\": [\n            \"owned\"\n          ]\n        }\n      }\n    }\n  ]\n}",
+            "override_json": null,
+            "override_policy_documents": null,
+            "policy_id": null,
+            "source_json": null,
+            "source_policy_documents": null,
+            "statement": [
+              {
+                "actions": [
+                  "autoscaling:DescribeAutoScalingGroups",
+                  "autoscaling:DescribeAutoScalingInstances",
+                  "autoscaling:DescribeLaunchConfigurations",
+                  "autoscaling:DescribeTags",
+                  "ec2:DescribeLaunchTemplateVersions"
+                ],
+                "condition": [],
+                "effect": "Allow",
+                "not_actions": [],
+                "not_principals": [],
+                "not_resources": [],
+                "principals": [],
+                "resources": [
+                  "*"
+                ],
+                "sid": "eksWorkerAutoscalingAll"
+              },
+              {
+                "actions": [
+                  "autoscaling:SetDesiredCapacity",
+                  "autoscaling:TerminateInstanceInAutoScalingGroup",
+                  "autoscaling:UpdateAutoScalingGroup"
+                ],
+                "condition": [
+                  {
+                    "test": "StringEquals",
+                    "values": [
+                      "owned"
+                    ],
+                    "variable": "autoscaling:ResourceTag/kubernetes.io/cluster/terraform-eks-demo"
+                  },
+                  {
+                    "test": "StringEquals",
+                    "values": [
+                      "true"
+                    ],
+                    "variable": "autoscaling:ResourceTag/k8s.io/cluster-autoscaler/enabled"
+                  }
+                ],
+                "effect": "Allow",
+                "not_actions": [],
+                "not_principals": [],
+                "not_resources": [],
+                "principals": [],
+                "resources": [
+                  "*"
+                ],
+                "sid": "eksWorkerAutoscalingOwn"
+              }
+            ],
+            "version": "2012-10-17"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_region",
+      "name": "current",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "description": "US West (N. California)",
+            "endpoint": "ec2.us-west-1.amazonaws.com",
+            "id": "us-west-1",
+            "name": "us-west-1"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "http",
+      "name": "workstation-external-ip",
+      "provider": "provider[\"registry.terraform.io/hashicorp/http\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "body": "74.12.176.142\n",
+            "id": "http://ipv4.icanhazip.com",
+            "request_headers": null,
+            "response_headers": {
+              "Access-Control-Allow-Methods": "GET",
+              "Access-Control-Allow-Origin": "*",
+              "Alt-Svc": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400, h3=\":443\"; ma=86400",
+              "Cf-Ray": "6737af297d372a72-ORD",
+              "Connection": "keep-alive",
+              "Content-Length": "14",
+              "Content-Type": "text/plain",
+              "Date": "Fri, 23 Jul 2021 20:33:31 GMT",
+              "Server": "cloudflare",
+              "Set-Cookie": "__cf_bm=68ed1c6c77f8cf39c6e790de94c19274bafacf2b-1627072411-1800-AbjQDVg1XlUiOExKECRQzfVxQ/4Y30rCurd4XhbasznLi2viW9K4AjKBSUWR5Pizm8zkto8QV42OPNMJoM+DYoM=; path=/; expires=Fri, 23-Jul-21 21:03:31 GMT; domain=.icanhazip.com; HttpOnly; SameSite=None",
+              "Vary": "Accept-Encoding"
+            },
+            "url": "http://ipv4.icanhazip.com"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_eks_cluster",
+      "name": "demo",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:eks:us-west-1:402856767392:cluster/terraform-eks-demo",
+            "certificate_authority": [
+              {
+                "data": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM1ekNDQWMrZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1EY3lNekl3TXpreE5Wb1hEVE14TURjeU1USXdNemt4TlZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTDRrCm84cnhzZlp4TE1SN0oyVlJSWDJ4K255dWtMQzh5QVFWLzQzcjJHMDJVYWgwczE5SXd0SnI5U3IvNEFxN1FZN24KL2VLcURlNGtUamU0WWdRWEVKaXZpczlRTVZkenJGU3lCQmR1dHE5RG40MStnMTYvcnNkVTBwZUNaZW5KbnYycgo0R1NBNFU5TzR0NlJjVllhUThicVN4QTRrR2hhdFg1N0cvOHhzbUVXR1k0ckFDOGh4c3FtekNkWUM3ZzErUVFaCnEwYXJ0TEdNTjV0MTFJYlJ4RENOTC9FRnZXR0REcSswbjRhUjJORlpCaFpFbGx3eG16UWEybXFRY3VVMk1ESGIKWDQyTG9mNUFvYzREK2hIYmMvbkhGT2VwK0tUQzJ3dEpZcDd6TmFVYm5UYXFwN0R1VTQ0Q2xtemhtT0p4OUxwNgpPUFhVUi92cjk3d3R0aitEamNVQ0F3RUFBYU5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZIb1NZZjhHYnNNMzN4UmpCN2hlcVh6MWxvalNNQTBHQ1NxR1NJYjMKRFFFQkN3VUFBNElCQVFDcU9SUFpldU5tS2ttbThzVVNISnE1NjlUUjZJOEc0Vlk1blNzcDgwUjJxVS9hQTNBMwpTTEZPRG5MbFFSSGdKZmF2ZTU0WGlBUTlpMDlsUnpNWUFMQSs5bFJIRWlOTTN4WWpZdldjNTgvRCtGQ016ZXRKCmlzdXNWTVhEQWlocjlIOWJUVHNVb1o4Wk9JM2o0eithcWZSamRLSXlFWjR4L2s5dVZhRUZ3d0ZhbVlKMEJJNkgKaDBSeVlISXFXNWRLQ2VjUFdreDJ0RE9yZ2FIdTI4ME5TSndhMXNCUmY0K25kRHk0MEFob0lyQ2FBQ1VtRXg4dQpERnN4Q3NqZjFWenVydmljTERtYzdqMlRTc0trcG1sR04zWW85aVhJbjNlWS9GNUh2cjRlclB3WER4VThqNmZQCm1FR1dmZlk1dVNtY041STBGUzJlNEcySEtsTzZ6OXVRaEFhSQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg=="
+              }
+            ],
+            "created_at": "2021-07-23 20:33:58.857 +0000 UTC",
+            "enabled_cluster_log_types": null,
+            "encryption_config": [],
+            "endpoint": "https://6BA539B8FFA92C6CA48E8C78D46A3647.yl4.us-west-1.eks.amazonaws.com",
+            "id": "terraform-eks-demo",
+            "identity": [
+              {
+                "oidc": [
+                  {
+                    "issuer": "https://oidc.eks.us-west-1.amazonaws.com/id/6BA539B8FFA92C6CA48E8C78D46A3647"
+                  }
+                ]
+              }
+            ],
+            "kubernetes_network_config": [
+              {
+                "service_ipv4_cidr": "172.20.0.0/16"
+              }
+            ],
+            "name": "terraform-eks-demo",
+            "platform_version": "eks.2",
+            "role_arn": "arn:aws:iam::402856767392:role/terraform-eks-demo-cluster",
+            "status": "ACTIVE",
+            "tags": null,
+            "tags_all": {},
+            "timeouts": null,
+            "version": "1.20",
+            "vpc_config": [
+              {
+                "cluster_security_group_id": "sg-09d6f66f57f2ba1c0",
+                "endpoint_private_access": false,
+                "endpoint_public_access": true,
+                "public_access_cidrs": [
+                  "0.0.0.0/0"
+                ],
+                "security_group_ids": [
+                  "sg-04073ddd49ccc42ca"
+                ],
+                "subnet_ids": [
+                  "subnet-068b361a2006e1b49",
+                  "subnet-073c3fec247acfb1d"
+                ],
+                "vpc_id": "vpc-0b99568fc1ede5a8a"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjkwMDAwMDAwMDAwMCwidXBkYXRlIjozNjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "aws_iam_role.demo-cluster",
+            "aws_iam_role_policy_attachment.demo-cluster-AmazonEKSClusterPolicy",
+            "aws_iam_role_policy_attachment.demo-cluster-AmazonEKSServicePolicy",
+            "aws_security_group.demo-cluster",
+            "aws_subnet.demo",
+            "aws_vpc.demo",
+            "data.aws_availability_zones.available"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_eks_node_group",
+      "name": "demo",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "ami_type": "AL2_x86_64",
+            "arn": "arn:aws:eks:us-west-1:402856767392:nodegroup/terraform-eks-demo/demo/6cbd6a8e-04f9-88fb-af3d-10ddd1388207",
+            "capacity_type": "ON_DEMAND",
+            "cluster_name": "terraform-eks-demo",
+            "disk_size": 20,
+            "force_update_version": null,
+            "id": "terraform-eks-demo:demo",
+            "instance_types": [
+              "t2.medium"
+            ],
+            "labels": null,
+            "launch_template": [],
+            "node_group_name": "demo",
+            "node_group_name_prefix": "",
+            "node_role_arn": "arn:aws:iam::402856767392:role/terraform-eks-demo-node",
+            "release_version": "1.20.4-20210720",
+            "remote_access": [
+              {
+                "ec2_ssh_key": "devkey",
+                "source_security_group_ids": null
+              }
+            ],
+            "resources": [
+              {
+                "autoscaling_groups": [
+                  {
+                    "name": "eks-6cbd6a8e-04f9-88fb-af3d-10ddd1388207"
+                  }
+                ],
+                "remote_access_security_group_id": "sg-0f9187b462f149b27"
+              }
+            ],
+            "scaling_config": [
+              {
+                "desired_size": 2,
+                "max_size": 4,
+                "min_size": 2
+              }
+            ],
+            "status": "ACTIVE",
+            "subnet_ids": [
+              "subnet-068b361a2006e1b49",
+              "subnet-073c3fec247acfb1d"
+            ],
+            "tags": null,
+            "tags_all": {},
+            "taint": [],
+            "timeouts": null,
+            "version": "1.20"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozNjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInVwZGF0ZSI6MzYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_eks_cluster.demo",
+            "aws_iam_policy.worker_autoscaling",
+            "aws_iam_role.demo-cluster",
+            "aws_iam_role.demo-node",
+            "aws_iam_role_policy_attachment.demo-cluster-AmazonEKSClusterPolicy",
+            "aws_iam_role_policy_attachment.demo-cluster-AmazonEKSServicePolicy",
+            "aws_iam_role_policy_attachment.demo-node-AmazonEC2ContainerRegistryReadOnly",
+            "aws_iam_role_policy_attachment.demo-node-AmazonEKSWorkerNodePolicy",
+            "aws_iam_role_policy_attachment.demo-node-AmazonEKS_CNI_Policy",
+            "aws_iam_role_policy_attachment.workers_autoscaling",
+            "aws_security_group.demo-cluster",
+            "aws_subnet.demo",
+            "aws_vpc.demo",
+            "data.aws_availability_zones.available",
+            "data.aws_iam_policy_document.worker_autoscaling"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_policy",
+      "name": "worker_autoscaling",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::402856767392:policy/eks-worker-autoscaling-terraform-eks-demo20210723204341181700000006",
+            "description": "EKS worker node autoscaling policy for cluster terraform-eks-demo",
+            "id": "arn:aws:iam::402856767392:policy/eks-worker-autoscaling-terraform-eks-demo20210723204341181700000006",
+            "name": "eks-worker-autoscaling-terraform-eks-demo20210723204341181700000006",
+            "name_prefix": "eks-worker-autoscaling-terraform-eks-demo",
+            "path": "/",
+            "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Sid\": \"eksWorkerAutoscalingAll\",\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"ec2:DescribeLaunchTemplateVersions\",\n        \"autoscaling:DescribeTags\",\n        \"autoscaling:DescribeLaunchConfigurations\",\n        \"autoscaling:DescribeAutoScalingInstances\",\n        \"autoscaling:DescribeAutoScalingGroups\"\n      ],\n      \"Resource\": \"*\"\n    },\n    {\n      \"Sid\": \"eksWorkerAutoscalingOwn\",\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"autoscaling:UpdateAutoScalingGroup\",\n        \"autoscaling:TerminateInstanceInAutoScalingGroup\",\n        \"autoscaling:SetDesiredCapacity\"\n      ],\n      \"Resource\": \"*\",\n      \"Condition\": {\n        \"StringEquals\": {\n          \"autoscaling:ResourceTag/k8s.io/cluster-autoscaler/enabled\": [\n            \"true\"\n          ],\n          \"autoscaling:ResourceTag/kubernetes.io/cluster/terraform-eks-demo\": [\n            \"owned\"\n          ]\n        }\n      }\n    }\n  ]\n}",
+            "policy_id": "ANPAV3TBCN6QLHL5X5DOV",
+            "tags": null,
+            "tags_all": {}
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_eks_cluster.demo",
+            "aws_iam_role.demo-cluster",
+            "aws_iam_role_policy_attachment.demo-cluster-AmazonEKSClusterPolicy",
+            "aws_iam_role_policy_attachment.demo-cluster-AmazonEKSServicePolicy",
+            "aws_security_group.demo-cluster",
+            "aws_subnet.demo",
+            "aws_vpc.demo",
+            "data.aws_availability_zones.available",
+            "data.aws_iam_policy_document.worker_autoscaling"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "demo-cluster",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::402856767392:role/terraform-eks-demo-cluster",
+            "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"eks.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+            "create_date": "2021-07-23T20:33:36Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "terraform-eks-demo-cluster",
+            "inline_policy": [
+              {
+                "name": "",
+                "policy": ""
+              }
+            ],
+            "managed_policy_arns": [],
+            "max_session_duration": 3600,
+            "name": "terraform-eks-demo-cluster",
+            "name_prefix": null,
+            "path": "/",
+            "permissions_boundary": null,
+            "tags": null,
+            "tags_all": {},
+            "unique_id": "AROAV3TBCN6QEMLAEAEWQ"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "demo-node",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::402856767392:role/terraform-eks-demo-node",
+            "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
+            "create_date": "2021-07-23T20:33:36Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "terraform-eks-demo-node",
+            "inline_policy": [
+              {
+                "name": "",
+                "policy": ""
+              }
+            ],
+            "managed_policy_arns": [],
+            "max_session_duration": 3600,
+            "name": "terraform-eks-demo-node",
+            "name_prefix": null,
+            "path": "/",
+            "permissions_boundary": null,
+            "tags": null,
+            "tags_all": {},
+            "unique_id": "AROAV3TBCN6QCBP43MFF2"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy_attachment",
+      "name": "demo-cluster-AmazonEKSClusterPolicy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "terraform-eks-demo-cluster-20210723203339163400000002",
+            "policy_arn": "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+            "role": "terraform-eks-demo-cluster"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.demo-cluster"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy_attachment",
+      "name": "demo-cluster-AmazonEKSServicePolicy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "terraform-eks-demo-cluster-20210723203339160800000001",
+            "policy_arn": "arn:aws:iam::aws:policy/AmazonEKSServicePolicy",
+            "role": "terraform-eks-demo-cluster"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.demo-cluster"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy_attachment",
+      "name": "demo-node-AmazonEC2ContainerRegistryReadOnly",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "terraform-eks-demo-node-20210723203339588700000004",
+            "policy_arn": "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+            "role": "terraform-eks-demo-node"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.demo-node"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy_attachment",
+      "name": "demo-node-AmazonEKSWorkerNodePolicy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "terraform-eks-demo-node-20210723203339545700000003",
+            "policy_arn": "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+            "role": "terraform-eks-demo-node"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.demo-node"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy_attachment",
+      "name": "demo-node-AmazonEKS_CNI_Policy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "terraform-eks-demo-node-20210723203339592400000005",
+            "policy_arn": "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+            "role": "terraform-eks-demo-node"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.demo-node"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy_attachment",
+      "name": "workers_autoscaling",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "terraform-eks-demo-node-20210723204341896200000007",
+            "policy_arn": "arn:aws:iam::402856767392:policy/eks-worker-autoscaling-terraform-eks-demo20210723204341181700000006",
+            "role": "terraform-eks-demo-node"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_eks_cluster.demo",
+            "aws_iam_policy.worker_autoscaling",
+            "aws_iam_role.demo-cluster",
+            "aws_iam_role.demo-node",
+            "aws_iam_role_policy_attachment.demo-cluster-AmazonEKSClusterPolicy",
+            "aws_iam_role_policy_attachment.demo-cluster-AmazonEKSServicePolicy",
+            "aws_security_group.demo-cluster",
+            "aws_subnet.demo",
+            "aws_vpc.demo",
+            "data.aws_availability_zones.available",
+            "data.aws_iam_policy_document.worker_autoscaling"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_internet_gateway",
+      "name": "demo",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-west-1:402856767392:internet-gateway/igw-063c958e8f6069235",
+            "id": "igw-063c958e8f6069235",
+            "owner_id": "402856767392",
+            "tags": {
+              "Name": "terraform-eks-demo"
+            },
+            "tags_all": {
+              "Name": "terraform-eks-demo"
+            },
+            "vpc_id": "vpc-0b99568fc1ede5a8a"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_vpc.demo"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "demo",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-west-1:402856767392:route-table/rtb-0d4b8b14711020986",
+            "id": "rtb-0d4b8b14711020986",
+            "owner_id": "402856767392",
+            "propagating_vgws": [],
+            "route": [
+              {
+                "carrier_gateway_id": "",
+                "cidr_block": "0.0.0.0/0",
+                "destination_prefix_list_id": "",
+                "egress_only_gateway_id": "",
+                "gateway_id": "igw-063c958e8f6069235",
+                "instance_id": "",
+                "ipv6_cidr_block": "",
+                "local_gateway_id": "",
+                "nat_gateway_id": "",
+                "network_interface_id": "",
+                "transit_gateway_id": "",
+                "vpc_endpoint_id": "",
+                "vpc_peering_connection_id": ""
+              }
+            ],
+            "tags": null,
+            "tags_all": {},
+            "vpc_id": "vpc-0b99568fc1ede5a8a"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_internet_gateway.demo",
+            "aws_vpc.demo"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "demo",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": "",
+            "id": "rtbassoc-09f18cf9ed74c8d13",
+            "route_table_id": "rtb-0d4b8b14711020986",
+            "subnet_id": "subnet-068b361a2006e1b49"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_internet_gateway.demo",
+            "aws_route_table.demo",
+            "aws_subnet.demo",
+            "aws_vpc.demo",
+            "data.aws_availability_zones.available"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": "",
+            "id": "rtbassoc-016de598b8fcc3d0b",
+            "route_table_id": "rtb-0d4b8b14711020986",
+            "subnet_id": "subnet-073c3fec247acfb1d"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_internet_gateway.demo",
+            "aws_route_table.demo",
+            "aws_subnet.demo",
+            "aws_vpc.demo",
+            "data.aws_availability_zones.available"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "demo-cluster",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-west-1:402856767392:security-group/sg-04073ddd49ccc42ca",
+            "description": "Cluster communication with worker nodes",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-04073ddd49ccc42ca",
+            "ingress": [],
+            "name": "terraform-eks-demo-cluster",
+            "name_prefix": "",
+            "owner_id": "402856767392",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "terraform-eks-demo"
+            },
+            "tags_all": {
+              "Name": "terraform-eks-demo"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0b99568fc1ede5a8a"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_vpc.demo"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "demo-cluster-ingress-workstation-https",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [
+              "74.12.176.142/32"
+            ],
+            "description": "Allow workstation to communicate with the cluster API Server",
+            "from_port": 443,
+            "id": "sgrule-2383151031",
+            "ipv6_cidr_blocks": null,
+            "prefix_list_ids": null,
+            "protocol": "tcp",
+            "security_group_id": "sg-04073ddd49ccc42ca",
+            "self": false,
+            "source_security_group_id": null,
+            "to_port": 443,
+            "type": "ingress"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.demo-cluster",
+            "aws_vpc.demo",
+            "data.http.workstation-external-ip"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "demo",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-west-1:402856767392:subnet/subnet-068b361a2006e1b49",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "us-west-1a",
+            "availability_zone_id": "usw1-az3",
+            "cidr_block": "10.0.0.0/24",
+            "customer_owned_ipv4_pool": "",
+            "id": "subnet-068b361a2006e1b49",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "map_customer_owned_ip_on_launch": false,
+            "map_public_ip_on_launch": true,
+            "outpost_arn": "",
+            "owner_id": "402856767392",
+            "tags": {
+              "Name": "terraform-eks-demo-node",
+              "kubernetes.io/cluster/terraform-eks-demo": "shared"
+            },
+            "tags_all": {
+              "Name": "terraform-eks-demo-node",
+              "kubernetes.io/cluster/terraform-eks-demo": "shared"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0b99568fc1ede5a8a"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "aws_vpc.demo",
+            "data.aws_availability_zones.available"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-west-1:402856767392:subnet/subnet-073c3fec247acfb1d",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "us-west-1b",
+            "availability_zone_id": "usw1-az1",
+            "cidr_block": "10.0.1.0/24",
+            "customer_owned_ipv4_pool": "",
+            "id": "subnet-073c3fec247acfb1d",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "map_customer_owned_ip_on_launch": false,
+            "map_public_ip_on_launch": true,
+            "outpost_arn": "",
+            "owner_id": "402856767392",
+            "tags": {
+              "Name": "terraform-eks-demo-node",
+              "kubernetes.io/cluster/terraform-eks-demo": "shared"
+            },
+            "tags_all": {
+              "Name": "terraform-eks-demo-node",
+              "kubernetes.io/cluster/terraform-eks-demo": "shared"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-0b99568fc1ede5a8a"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "aws_vpc.demo",
+            "data.aws_availability_zones.available"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_vpc",
+      "name": "demo",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-west-1:402856767392:vpc/vpc-0b99568fc1ede5a8a",
+            "assign_generated_ipv6_cidr_block": false,
+            "cidr_block": "10.0.0.0/16",
+            "default_network_acl_id": "acl-03e437aab54b41fc5",
+            "default_route_table_id": "rtb-04037cdb0ac4a582a",
+            "default_security_group_id": "sg-05ecf6ccbc56ef38b",
+            "dhcp_options_id": "dopt-bcb07fda",
+            "enable_classiclink": false,
+            "enable_classiclink_dns_support": false,
+            "enable_dns_hostnames": false,
+            "enable_dns_support": true,
+            "id": "vpc-0b99568fc1ede5a8a",
+            "instance_tenancy": "default",
+            "ipv6_association_id": "",
+            "ipv6_cidr_block": "",
+            "main_route_table_id": "rtb-04037cdb0ac4a582a",
+            "owner_id": "402856767392",
+            "tags": {
+              "Name": "terraform-eks-demo-node",
+              "kubernetes.io/cluster/terraform-eks-demo": "shared"
+            },
+            "tags_all": {
+              "Name": "terraform-eks-demo-node",
+              "kubernetes.io/cluster/terraform-eks-demo": "shared"
+            }
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ]
+}
